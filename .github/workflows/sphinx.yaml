@@ -5,11 +5,13 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    python-version: "3.11"
     permissions:
       contents: write
     steps:
     - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11' 
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
